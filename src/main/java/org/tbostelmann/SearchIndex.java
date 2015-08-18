@@ -2,7 +2,6 @@ package org.tbostelmann;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rx.Observable;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -11,12 +10,12 @@ import java.util.List;
 /**
  * Created by tbostelmann on 8/13/15.
  */
-public class SearchJob {
-	private static final Logger logger = LoggerFactory.getLogger(SearchJob.class);
+public class SearchIndex {
+	private static final Logger logger = LoggerFactory.getLogger(SearchIndex.class);
 
 	private final List<File> files;
 
-	public SearchJob(final String[] filePaths) {
+	public SearchIndex(final String[] filePaths) {
 		files = initFiles(filePaths);
 	}
 

@@ -2,7 +2,7 @@ package org.tbostelmann.io;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.tbostelmann.Message;
+import org.tbostelmann.event.LineEvent;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
@@ -13,11 +13,11 @@ import java.util.concurrent.Callable;
 public abstract class BaseWorker implements Callable {
 	private static final Logger logger = LoggerFactory.getLogger(BaseWorker.class);
 
-	private final BlockingQueue<Message> queue;
+	private final BlockingQueue<LineEvent> queue;
 	private final boolean exitOnFailure;
 	private volatile boolean shutdownRequested = false;
 
-	public BaseWorker(final BlockingQueue<Message> queue) {
+	public BaseWorker(final BlockingQueue<LineEvent> queue) {
 		this.queue = queue;
 		this.exitOnFailure = false;
 	}
