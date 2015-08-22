@@ -56,7 +56,7 @@ public class RegexSearchStrategy extends GrepSearchStrategy {
 		RegexSearchStrategy searchStrategy = new RegexSearchStrategy(fileDir);
 
 		Long startTime = currentTime();
-		IntStream.range(0, num)
+		IntStream.range(0, num).parallel()
 				 .forEach(
 						 nbr -> {
 							 searchStrategy.search(".*(" + randomWord((nbr % 8) + 4) + ").*");

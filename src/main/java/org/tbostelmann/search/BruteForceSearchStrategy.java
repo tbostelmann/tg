@@ -59,7 +59,7 @@ public class BruteForceSearchStrategy extends GrepSearchStrategy {
 		BruteForceSearchStrategy searcher = new BruteForceSearchStrategy(fileDir);
 
 		Long startTime = currentTime();
-		IntStream.range(0, num).forEach(
+		IntStream.range(0, num).parallel().forEach(
 				nbr -> {
 					searcher.search(randomWord((nbr % 8) + 4));
 					if (nbr % tic == 0)
